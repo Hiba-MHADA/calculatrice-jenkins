@@ -1,12 +1,17 @@
 pipeline {
     agent any
     tools {
-        nodejs 'node' // Le nom que tu as donné dans la config de Jenkins
+        nodejs 'node' 
     }
     stages {
         stage('Installation') {
             steps {
                 bat 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                bat 'npm test'
             }
         }
         stage('Build') {
